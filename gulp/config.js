@@ -2,7 +2,8 @@ var assets = "./app/assets";
 
 module.exports = {
   browserSync: {
-    proxy: 'localhost:3000'
+    proxy: 'localhost:3000',
+    files: ['./app/{views,controllers,helpers}/**']
   },
   sass: {
     src: assets + "/stylesheets/*.{sass,scss}",
