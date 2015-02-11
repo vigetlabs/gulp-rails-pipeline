@@ -10,7 +10,7 @@
     "url": "git://github.com/greypants/gulp-rails.git"
   },
   "scripts": {
-    "postinstall": "gulp rev"
+    "postinstall": "gulp build"
   },
   "browserify": {
     "transform": [

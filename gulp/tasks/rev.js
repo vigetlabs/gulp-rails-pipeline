@@ -4,7 +4,7 @@ var rev          = require('gulp-rev');
 var revCollector = require('gulp-rev-collector');
 
 // Add md5 hashes to assets
-gulp.task('rev-assets', ['build'], function(){
+gulp.task('rev-assets', function(){
   return gulp.src(config.publicAssets + '/**/!(*.{css,js})')
     .pipe(rev())
     .pipe(gulp.dest(config.publicAssets))
