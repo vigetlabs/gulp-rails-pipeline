@@ -3,6 +3,9 @@ var publicAssets = "./public/assets";
 var sourceFiles  = "./gulp/assets";
 
 module.exports = {
+  publicAssets: publicAssets,
+  railsAssets: railsAssets,
+
   browserSync: {
     proxy: 'localhost:3000'
   },
