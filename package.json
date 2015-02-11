@@ -10,12 +10,12 @@
     "url": "git://github.com/greypants/gulp-rails.git"
   },
   "scripts": {
-    "postinstall": "./node_modules/.bin/gulp build"
+    "postinstall": "gulp build"
   },
   "browserify": {
     "transform": [ "coffeeify" ]
   },
-  "devDependencies": {
+  "dependencies": {
     "browser-sync": "~1.3.6",
     "browserify": "^8.0.2",
     "coffeeify": "~0.7.0",
@@ -44,8 +44,5 @@
     "require-dir": "^0.1.0",
     "vinyl-source-stream": "~0.1.1",
     "watchify": "^2.2.1"
-  },
-  "dependencies": {
-    "jquery": "~2.1.0"
   }
 }
