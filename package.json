@@ -1,0 +1,44 @@
+{
+  "name": "gulp-rails",
+  "description": "Gulp Asset Pipeline with Rails",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/greypants/gulp-rails.git"
+  },
+  "browserify": {
+    "transform": [ "coffeeify" ]
+  },
+  "devDependencies": {
+    "browser-sync": "~1.3.6",
+    "browserify": "^8.0.2",
+    "coffeeify": "~0.7.0",
+    "gulp": "^3.8.7",
+    "gulp-autoprefixer": "^2.0.0",
+    "gulp-changed": "^0.4.1",
+    "gulp-filesize": "0.0.6",
+    "gulp-iconfont": "^1.0.0",
+    "gulp-imagemin": "^0.6.2",
+    "gulp-notify": "^1.4.2",
+    "gulp-sass": "~1.3.1",
+    "gulp-rename": "^1.2.0",
+    "gulp-sourcemaps": "^1.2.8",
+    "gulp-swig": "^0.7.4",
+    "gulp-uglify": "^1.0.2",
+    "gulp-util": "^3.0.0",
+    "karma": "^0.12.31",
+    "karma-browserify": "^3.0.0",
+    "karma-chrome-launcher": "^0.1.7",
+    "karma-coffee-preprocessor": "^0.2.1",
+    "karma-mocha": "^0.1.10",
+    "karma-nyan-reporter": "0.0.50",
+    "karma-sinon-chai": "^0.3.0",
+    "lodash": "^2.4.1",
+    "pretty-hrtime": "~0.2.1",
+    "require-dir": "^0.1.0",
+    "vinyl-source-stream": "~0.1.1",
+    "watchify": "^2.2.1"
+  },
+  "dependencies": {
+    "jquery": "~2.1.0"
+  }
+}
