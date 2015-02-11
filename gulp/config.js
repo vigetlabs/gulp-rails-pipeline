@@ -1,30 +1,31 @@
-var assets = "./app/assets";
+var railsAssets  = "./app/assets";
+var publicAssets = "./public/assets";
+var sourceFiles  = "./gulp/assets";
 
 module.exports = {
   browserSync: {
-    proxy: 'localhost:3000',
-    files: ['./app/{views,controllers,helpers}/**']
+    proxy: 'localhost:3000'
   },
   sass: {
-    src: assets + "/stylesheets/*.{sass,scss}",
-    dest: assets + "/stylesheets/compiled",
+    src: sourceFiles + "/stylesheets/*.{sass,scss}",
+    dest: railsAssets + "/stylesheets/compiled",
     settings: {
       indentedSyntax: true, // Enable .sass syntax!
-      imagePath: '/assets' // Used by the image-url helper
+      imagePath: '/assets/images' // Used by the image-url helper
     }
   },
   images: {
-    src: assets + "/images/**",
-    dest: assets + "/images"
+    src: sourceFiles + "/images/**",
+    dest: publicAssets + "/images"
   },
   iconFonts: {
     name: 'Gulp Rails Icons',
-    src: assets + "/images/icons/*.svg",
-    dest: assets + '/fonts',
-    sassDest: assets + '/stylesheets/base',
+    src: sourceFiles + "/icons/*.svg",
+    dest: publicAssets + '/fonts',
+    sassDest: sourceFiles + '/stylesheets/base',
     template: './gulp/tasks/iconFont/template.sass.swig',
-    sassOutputName: '_icons.sass',
-    fontPath: 'fonts',
+    sassOutputName: '_iconFont.sass',
+    fontPath: '/assets/fonts',
     className: 'icon',
     options: {
       fontName: 'gulp-rails-icons',
@@ -34,8 +35,8 @@ module.exports = {
   },
   browserify: {
     bundleConfigs: [{
-      entries: assets + '/javascripts/global.coffee',
-      dest: assets + '/javascripts/compiled',
+      entries: sourceFiles + '/javascripts/global.coffee',
+      dest: railsAssets + '/javascripts/compiled',
       outputName: 'global.js',
       extensions: ['.js','.coffee']
     }]
