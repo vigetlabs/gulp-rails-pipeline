@@ -1,9 +1,16 @@
 {
   "name": "gulp-rails",
   "description": "Gulp Asset Pipeline with Rails",
+  "engines": {
+    "node": "0.10.36",
+    "npm": "2.3.0"
+  },
   "repository": {
     "type": "git",
     "url": "git://github.com/greypants/gulp-rails.git"
+  },
+  "scripts": {
+    "postinstall": "node_modules/.bin/gulp build"
   },
   "browserify": {
     "transform": [ "coffeeify" ]
