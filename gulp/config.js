@@ -10,7 +10,7 @@ module.exports = {
     dest: assets + "/stylesheets/compiled",
     settings: {
       indentedSyntax: true, // Enable .sass syntax!
-      imagePath: 'images' // Used by the image-url helper
+      imagePath: '/assets' // Used by the image-url helper
     }
   },
   images: {
