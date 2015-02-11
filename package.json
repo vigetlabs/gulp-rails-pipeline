@@ -10,7 +10,7 @@
     "url": "git://github.com/greypants/gulp-rails.git"
   },
   "scripts": {
-    "postinstall": "node_modules/.bin/gulp build"
+    "postinstall": "./node_modules/.bin/gulp build"
   },
   "browserify": {
     "transform": [ "coffeeify" ]
