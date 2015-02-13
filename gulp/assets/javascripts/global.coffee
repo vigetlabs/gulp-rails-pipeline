@@ -1,1 +1,3 @@
-console.log 'i am coffee'
+message = require './message'
+
+console.log message

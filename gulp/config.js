@@ -7,7 +7,8 @@ module.exports = {
   railsAssets: railsAssets,
 
   browserSync: {
-    proxy: 'localhost:3000'
+    proxy: 'localhost:3000',
+    files: ['./app/views/**']
   },
   sass: {
     src: sourceFiles + "/stylesheets/*.{sass,scss}",
@@ -26,7 +27,7 @@ module.exports = {
     src: sourceFiles + "/icons/*.svg",
     dest: publicAssets + '/fonts',
     sassDest: sourceFiles + '/stylesheets/base',
-    template: './gulp/tasks/iconFont/template.sass.swig',
+    template: './gulp/tasks/iconFont/template.sass',
     sassOutputName: '_iconFont.sass',
     fontPath: '/assets/fonts',
     className: 'icon',
