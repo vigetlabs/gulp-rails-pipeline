@@ -1,6 +1,5 @@
 var browserify   = require('browserify');
 var browserSync  = require('browser-sync');
-var watchify     = require('watchify');
 var bundleLogger = require('../util/bundleLogger');
 var gulp         = require('gulp');
 var handleErrors = require('../util/handleErrors');
@@ -9,6 +8,10 @@ var config       = require('../config').browserify;
 var _            = require('lodash');
 
 var browserifyTask = function(callback, devMode) {
+
+  if(devMode) {
+    var watchify = require('watchify');
+  }
 
   var bundleQueue = config.bundleConfigs.length;
 
