@@ -1,17 +1,14 @@
+var _            = require('lodash');
 var browserify   = require('browserify');
 var browserSync  = require('browser-sync');
 var bundleLogger = require('../util/bundleLogger');
+var config       = require('../config').browserify;
 var gulp         = require('gulp');
 var handleErrors = require('../util/handleErrors');
 var source       = require('vinyl-source-stream');
-var config       = require('../config').browserify;
-var _            = require('lodash');
+var watchify     = require('watchify');
 
 var browserifyTask = function(callback, devMode) {
-
-  if(devMode) {
-    var watchify = require('watchify');
-  }
 
   var bundleQueue = config.bundleConfigs.length;
 

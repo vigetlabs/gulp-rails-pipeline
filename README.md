@@ -59,10 +59,9 @@ To fully take advantage of BrowserSync's live stylesheet injection, besure to co
 "scripts": {
   "postinstall": "gulp build"
 },
-"dependencies": {...},
-"devDependencies": {...}
+"dependencies": {...}
 ```
-After running `npm install`, Node will search the `scripts` object in `package.json` for `postinstall`, and will run the script if specified. `gulp build` compiles your assets. The build can be set up differently for different Rails environments. See below.
+After running `npm install`, Node will search the `scripts` object in `package.json` for `postinstall`, and will run the script if specified. `gulp build` compiles your assets. The build can be set up differently for different Rails environments. See below. A note about `dependencies`. Services like Heroku will ignore anything in `devDependences`, since it's techincally a production environment. So be sure to put anything your build process needs to run in `dependencies`, NOT `devDependencies.`
 
 ### gulp/tasks/rev.js
 ```js
