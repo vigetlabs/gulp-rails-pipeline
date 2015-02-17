@@ -31,6 +31,11 @@ Install javascript dependencies. Once npm install runs, the `postinstall` settin
 npm install
 ```
 
+Start the rails server.
+```
+rails s
+```
+
 Run gulp and rejoice! This will start watching and recompiling files on the fly, as well as open a with BrowserSync running.
 ````
 gulp
@@ -51,6 +56,14 @@ This is where all your source files will live. Your source icons for icon fonts,
 This is where any processed assets (images and fonts) will end up EXCEPT for css and js.
 
 ## Rails setup notes:
+
+### config/application.rb
+```rb
+# Make public assets requireable in manifest files
+config.assets.paths << Rails.root.join("public", "assets", "stylesheets")
+config.assets.paths << Rails.root.join("public", "assets", "javascripts")
+```
+If you plan on continuing to use Sprockets to `//require=` gem assets, you'll include your compiled js and css files in the `application.js` and `application.css` manifests files. The snippet above tells Sprockets to look in our `public/assets` directories when searching for required files. With this implementation, you'll continue using the Rails `javascript_include_tag` and `stylesheet_link_tag` asset pipeline helpers to pull in your manifest files (and everything they require). If you end up *not* needing the pipeline at all, you can pull in your compiled css and js directly with the `gulp_asset_path` helper (see below) and regular html.
 
 ### config/environments/development.rb
 ```rb
@@ -82,7 +95,7 @@ def gulp_asset_path(path)
   "/assets/#{path}"
 end
 ```
-Because we're storing our font and image assets outside of the Rails Asset Pipeline, we need to re-implement the `asset_path` path helper (as `gulp_asset_path` to reference un-hashed files in `development`, and the cacheable hashed versions of the files in `production`. This goes for  other Rails Asset Pipeline helpers, such as `<%= image_tag, 'asset.png' %>`. Instead, use `<img src="<%= gulp_asset_path('asset.png') %>">`.
+Because we're storing our assets outside of the Rails Asset Pipeline, we need to re-implement the `asset_path` path helper (as `gulp_asset_path` to reference un-hashed files in `development`, and the cacheable hashed versions of the files in `production`. This goes for other Rails Asset Pipeline helpers, such as `<%= image_tag, 'asset.png' %>`. Instead, use `<img src="<%= gulp_asset_path('asset.png') %>">`.
 
 ### config/initialiers/rev_manifest.rb
 ```rb

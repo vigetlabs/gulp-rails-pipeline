@@ -7,4 +7,4 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require compiled/global.js
+//= require global.js

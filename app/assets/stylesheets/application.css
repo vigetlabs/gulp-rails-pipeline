@@ -5,5 +5,5 @@
  * Use this file to include any stylesheet assets from installed gems. All other css is compiled with
  * libsass with Gulp.
  *
- *= require compiled/global.css
+ *= require global.css
  */
