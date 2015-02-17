@@ -1,12 +1,14 @@
 # The Gulp Asset Pipeline on Rails
-
-- Full BrowserSync integration
-- Compiled css (libsass!)
-- Compiled js (browserify!)
-- Generated IconFont (gulp-iconfont)
-- Compressed Images (gulp-imagemin)
-- Revisioned assets for cacheing in Production
-- Retains traditional Rails Asset Pipeline support for gem dependencies that require it.
+[https://github.com/greypants/gulp-rails-pipeline](https://github.com/greypants/gulp-rails-pipeline)
+- **Leaves Sprockets and manifest files intact** for use with gem installed assets
+- Transform and bundle CommonJS modules (js or coffee) with Browserify
+- Compile .sass/.scss with Libsass (node-sass through gulp-sass)
+- Autoprefix css
+- Optimize images (could be expanded to further proccess or resize images)
+- Compile an icon font + sass from a folder of SVGs
+- Full BrowserSync integration (the original Rails Asset Pipeline wasn't did't work with live stylesheet injection)
+- Revision filenames in production for caching
+- Build assets on deploy with Heroku
 
 [Production Environment Demo](https://gulp-rails.herokuapp.com/) _(notice the revisioned asset filenames for caching)_
 
@@ -36,32 +38,8 @@ gulp
 
 Try editing `global.sass` and watch how fast it reloads the css! Once you taste the speed of Libsass + browers, you'll never go back. Test out changing view code and javascript as well.
 
-## Asset File Structure (files to note)
-```
-.buildpacks
-package.json
-gulpfile.js
-- app
-  - assets
-    - javascripts
-      - compiled
-        global.js
-      application.js
-    - stylesheets
-      - compiled
-        global.css
-      application.css
-  - gulp
-    - assets
-      - icons
-      - images
-      - javascripts
-      - stylesheets
-  - public
-    - assets
-      - images
-      - fonts
-```
+## Asset File Structure
+![Asset File Structure](file-structure.png)
 
 ### app/assets
 The old directory we know and love should remain largely abandoned. It's new primary purpose is to include our compiled css and js into our application.js and application.css manifest files. We are leaving these manifest files, and this bit of the Rails Asset Pipeline in tact for a reason. If you end up relying on a gem that brings assets (e.g., Bootstrap) with it, you can still include them normally here. Otherwise, you should be storing and managing your assets in `gulp/assets`.
