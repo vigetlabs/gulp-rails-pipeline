@@ -7,4 +7,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require global.js
+//
+// Pull compiled from /public/assets/javascripts
+//= require global

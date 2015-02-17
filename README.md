@@ -45,15 +45,14 @@ Try editing `global.sass` and watch how fast it reloads the css! Once you taste 
 
 ## Asset File Structure
 ![Asset File Structure](file-structure.png)
-
-### app/assets
-The old directory we know and love should remain largely abandoned. It's new primary purpose is to include our compiled css and js into our application.js and application.css manifest files. We are leaving these manifest files, and this bit of the Rails Asset Pipeline in tact for a reason. If you end up relying on a gem that brings assets (e.g., Bootstrap) with it, you can still include them normally here. Otherwise, you should be storing and managing your assets in `gulp/assets`.
-
 ### gulp/assets
 This is where all your source files will live. Your source icons for icon fonts, sass files, js modules, and images. Anything that needs to get processed by Gulp. Compiled stylesheets and javacripts will end up in app/assets as mentioned above. Assets referenced by them will be output to `public/assets`.
 
 ### public/assets
 This is where any processed assets (images and fonts) will end up EXCEPT for css and js.
+
+### app/assets
+The old default asset directory should only include manifest files, which are necessary if you need to require gem installed assets (e.g., jquery_ujs, turbolinks) with Sprockets. The manifest files pull in gem assets, as well as our compiled js and css files from `/public/assets`.
 
 ## Rails setup notes:
 
