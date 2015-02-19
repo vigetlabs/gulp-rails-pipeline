@@ -14,7 +14,7 @@ gulp.task('rev-assets', function(){
 
 // Replace asset references in compiled css and js files
 gulp.task('rev', ['rev-assets'], function(){
-  return gulp.src([config.publicAssets + '/rev-manifest.json', config.publicAssets + '/**.{css,js}'])
+  return gulp.src([config.publicAssets + '/rev-manifest.json', config.publicAssets + '/**/*.{css,js}'])
     .pipe(revCollector())
-    .pipe(gulp.dest(config.railsAssets));
+    .pipe(gulp.dest(config.publicAssets));
 });
