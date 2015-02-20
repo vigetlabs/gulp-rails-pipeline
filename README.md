@@ -6,7 +6,7 @@
 - Autoprefix css
 - Optimize images (could be expanded to further proccess or resize images)
 - Compile an icon font + sass from a folder of SVGs
-- Full BrowserSync integration (the original Rails Asset Pipeline wasn't did't work with live stylesheet injection)
+- Full BrowserSync integration (the original Rails Asset Pipeline didn't work with live stylesheet injection)
 - Revision filenames in production for caching
 - Build assets on deploy with Heroku
 
