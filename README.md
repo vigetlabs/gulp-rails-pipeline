@@ -46,10 +46,10 @@ Try editing `global.sass` and watch how fast it reloads the css! Once you taste 
 ## Asset File Structure
 ![Asset File Structure](file-structure.png)
 ### gulp/assets
-This is where all your source files will live. Your source icons for icon fonts, sass files, js modules, and images. Anything that needs to get processed by Gulp. Compiled stylesheets and javacripts will end up in app/assets as mentioned above. Assets referenced by them will be output to `public/assets`.
+This is where all your source files will live. Your source icons for icon fonts, sass files, js modules, and images. Anything that needs to get processed by Gulp. All assets are set up to compile to `public/assets`.
 
 ### public/assets
-This is where any processed assets (images and fonts) will end up EXCEPT for css and js.
+All your compiled and processed assets. The `applicaiton.css` and `application.js` manifest files in `app/assets` pull compiled code from this folder.
 
 ### app/assets
 The old default asset directory should only include manifest files, which are necessary if you need to require gem installed assets (e.g., jquery_ujs, turbolinks) with Sprockets. The manifest files pull in gem assets, as well as our compiled js and css files from `/public/assets`.
