@@ -19,7 +19,7 @@ module.exports = {
     src: sourceFiles + "/images/**",
     dest: publicAssets + "/images"
   },
-  iconFonts: {
+  iconFont: {
     name: 'Gulp Rails Icons',
     src: sourceFiles + "/icons/*.svg",
     dest: publicAssets + '/fonts',

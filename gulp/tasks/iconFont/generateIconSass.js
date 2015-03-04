@@ -1,5 +1,5 @@
 var gulp     = require('gulp');
-var config   = require('../../config').iconFonts;
+var config   = require('../../config').iconFont;
 var template = require('gulp-swig');
 var rename   = require('gulp-rename');
 
