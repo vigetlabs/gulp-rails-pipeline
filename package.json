@@ -43,5 +43,8 @@
     "require-dir": "^0.1.0",
     "vinyl-source-stream": "~0.1.1",
     "watchify": "^2.2.1"
+  },
+  "devDependencies": {
+    "gulp-watch": "^4.1.1"
   }
 }

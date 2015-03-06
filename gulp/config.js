@@ -8,7 +8,7 @@ module.exports = {
     files: ['./app/views/**']
   },
   sass: {
-    src: sourceFiles + "/stylesheets/*.{sass,scss}",
+    src: sourceFiles + "/stylesheets/**/*.{sass,scss}",
     dest: publicAssets + "/stylesheets",
     settings: {
       indentedSyntax: true, // Enable .sass syntax!
