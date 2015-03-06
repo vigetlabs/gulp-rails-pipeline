@@ -1,5 +1,4 @@
 # The Gulp Asset Pipeline on Rails
-[https://github.com/greypants/gulp-rails-pipeline](https://github.com/greypants/gulp-rails-pipeline)
 - **Leaves Sprockets and manifest files intact** for use with gem installed assets
 - Transform and bundle CommonJS modules (js or coffee) with Browserify
 - Compile .sass/.scss with Libsass (node-sass through gulp-sass)
@@ -133,3 +132,6 @@ Take note of the following:
   config.serve_static_files = ENV['RAILS_SERVE_STATIC_FILES'].present?
 ```
 Heroku requires `config.serve_static_files` to be enabled, so be sure to either add `RAILS_SERVE_STATIC_FILES` as a config var in your Heroku settings, or manually set this to true in your `production.rb` file.
+
+---
+Original Blog Post: [viget.com/extend/gulp-rails-asset-pipeline](http://viget.com/extend/gulp-rails-asset-pipeline)
