@@ -95,7 +95,7 @@ end
 ```
 Because we're storing our assets outside of the Rails Asset Pipeline, we need to re-implement the `asset_path` path helper (as `gulp_asset_path` to reference un-hashed files in `development`, and the cacheable hashed versions of the files in `production`. This goes for other Rails Asset Pipeline helpers, such as `<%= image_tag, 'asset.png' %>`. Instead, use `<img src="<%= gulp_asset_path('asset.png') %>">`.
 
-### config/initialiers/rev_manifest.rb
+### config/initializers/rev_manifest.rb
 ```rb
 rev_manifest_path = 'public/assets/rev-manifest.json'
 
