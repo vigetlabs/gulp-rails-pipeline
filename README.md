@@ -9,7 +9,7 @@
 - Revision filenames in production for caching
 - Build assets on deploy with Heroku
 
-[Production Environment Demo](https://gulp-rails.herokuapp.com/) _(notice the revisioned asset filenames for caching)_
+[Production Environment Demo](https://gulp-rails-pipeline.herokuapp.com/) _(notice the revisioned asset filenames for caching)_
 
 **This repo is only meant to be an example.** You should fork and customize it with your own Rails setup and relevant Gulp tasks, or copy the relevant files into an existing project. To understand more about individual modules, read the documentation on their respective websites and repositories. Based on [gulp-starter](https://github.com/greypants/gulp-starter).
 
