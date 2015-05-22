@@ -132,5 +132,24 @@ Take note of the following:
 ```
 Heroku requires `config.serve_static_files` to be enabled, so be sure to either add `RAILS_SERVE_STATIC_FILES` as a config var in your Heroku settings, or manually set this to true in your `production.rb` file.
 
+### Capistrano
+
+All we need to do is add a task to run `npm install` before we compile the assets.
+
+The example below shows an example of using [nvm](https://github.com/creationix/nvm) (node version manager) to use the specified node version for your application.
+
+```rb
+# ./config/deploy.rb
+
+before "deploy:assets:precompile", "deploy:npm_install"
+
+namespace :deploy do
+  desc "Run npm install"
+  task :npm_install do
+    invoke_command "bash -c '. /home/deploy/.nvm/nvm.sh && cd #{release_path} && npm install'"
+  end
+end
+```
+
 ---
 Original Blog Post: [viget.com/extend/gulp-rails-asset-pipeline](http://viget.com/extend/gulp-rails-asset-pipeline)
