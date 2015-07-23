@@ -3,14 +3,14 @@ var config   = require('../../config').iconFont;
 var template = require('gulp-swig');
 var rename   = require('gulp-rename');
 
-module.exports = function(codepoints, options) {
+module.exports = function(glyphs, options) {
 
   var iconSass = template({
     data: {
-      icons: codepoints.map(function(icon) {
+      icons: glyphs.map(function(glyph) {
         return {
-          name: icon.name,
-          code: icon.codepoint.toString(16)
+          name: glyph.name,
+          code: glyph.unicode[0].charCodeAt(0).toString(16).toUpperCase()
         }
       }),
       fontName: config.options.fontName,

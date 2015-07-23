@@ -6,6 +6,6 @@ var generateIconSass = require('./generateIconSass');
 gulp.task('iconFont', function() {
   return gulp.src(config.src)
     .pipe(iconfont(config.options))
-    .on('codepoints', generateIconSass)
+    .on('glyphs', generateIconSass)
     .pipe(gulp.dest(config.dest));
 });
