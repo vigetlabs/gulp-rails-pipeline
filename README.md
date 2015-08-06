@@ -121,8 +121,10 @@ Heroku makes deploying SUPER easy, but there are a couple of things you'll need 
 Since we're using Ruby (to run Rails) AND Node (to compile our assets with Gulp) in our setup, we need both running on our server. Heroku will automatically detect ONE of these at a time based on the presense of a `Gemfile` or `package.json`, but to get both running simultaneously, we need to [specifiy heroku-buildback-multi as your buildpack](https://github.com/ddollar/heroku-buildpack-multi). This enables us to specify multiple custom buildpacks in a `.buildpacks` file.
 ```
 https://github.com/heroku/heroku-buildpack-nodejs.git
-https://github.com/heroku/heroku-buildpack-ruby.git
+https://github.com/orlando/heroku-buildpack-ruby.git
 ```
+(see: https://github.com/vigetlabs/gulp-rails-pipeline/issues/6#issuecomment-128444639)
+
 Now, when we deploy to Heroku, first `npm install` will run, then our `postinstall` script specified in `package.json`, and then `bundle install` will run.
 
 Take note of the following:
