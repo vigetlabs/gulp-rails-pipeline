@@ -37,14 +37,12 @@
     "gulp-sourcemaps": "^1.2.8",
     "gulp-swig": "^0.7.4",
     "gulp-util": "^3.0.0",
+    "gulp-watch": "^4.1.1",
     "lodash": "^2.4.1",
     "merge-stream": "^0.1.7",
     "pretty-hrtime": "~0.2.1",
     "require-dir": "^0.1.0",
     "vinyl-source-stream": "~0.1.1",
     "watchify": "^2.2.1"
-  },
-  "devDependencies": {
-    "gulp-watch": "^4.1.1"
   }
 }
