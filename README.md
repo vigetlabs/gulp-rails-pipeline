@@ -118,10 +118,13 @@ These steps must complete **before** starting the Rails server.
 ### Heroku
 Heroku makes deploying SUPER easy, but there are a couple of things you'll need to do to get this running.
 
-Since we're using Ruby (to run Rails) AND Node (to compile our assets with Gulp) in our setup, we need both running on our server. Heroku will automatically detect ONE of these at a time based on the presense of a `Gemfile` or `package.json`, but to get both running simultaneously, we need to [specify heroku-buildback-multi as your buildpack](https://github.com/ddollar/heroku-buildpack-multi). This enables us to specify multiple custom buildpacks in a `.buildpacks` file.
-```
-https://github.com/heroku/heroku-buildpack-nodejs.git
-https://github.com/heroku/heroku-buildpack-ruby.git
+Since we're using Ruby (to run Rails) AND Node (to compile our assets with Gulp) in our setup, we need both running on our server. Heroku will automatically detect ONE of these at a time based on the presense of a `Gemfile` or `package.json`, but to get both running simultaneously, we need to [specify multiple buildpacks](https://devcenter.heroku.com/articles/using-multiple-buildpacks-for-an-app) in the order we want.
+
+```bash
+heroku buildpacks                     # view current buildpacks
+heroku buildpacks:clear               # clear current buildpacks, if necessary
+heroku buildpacks:add heroku/nodejs   # add the buildpacks we want ...
+heroku buildpacks:add heroku/ruby     # ... in the order we want them
 ```
 
 Now, when we deploy to Heroku, first `npm install` will run, then our `postinstall` script specified in `package.json`, and then `bundle install` will run.
