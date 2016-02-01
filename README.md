@@ -134,7 +134,29 @@ Heroku requires `config.serve_static_files` to be enabled, so be sure to either 
 
 ### Capistrano
 
-All we need to do is add a task to run `npm install` before we compile the assets.
+First, we'll want to cache your `node_modules/` directory so that each deploy doesn't need to reinstall all dependencies. You'll want to point the symlink at the location in your application's codebase that the `node_modules/` directory exists.
+
+The following example is for a codebase that has a client side application nested in a subdirectory called `client_side/`.
+
+```rb
+# ./config/deploy.rb
+
+before "deploy:npm_install", "deploy:symlink_node_modules_directory"
+
+namespace :deploy do
+  #...
+
+  desc "Symlink node_modules directory"
+  task :symlink_node_modules_directory do
+    invoke_command "bash -c 'mkdir -p #{shared_path}/node_modules'"
+    invoke_command "bash -c 'ln -sf #{shared_path}/node_modules #{release_path}/client_side'"
+  end
+
+  #...
+end
+```
+
+Next, we need to add a task to run `npm install` before we compile the assets.
 
 The example below shows an example of using [nvm](https://github.com/creationix/nvm) (node version manager) to use the specified node version for your application.
 
@@ -144,10 +166,14 @@ The example below shows an example of using [nvm](https://github.com/creationix/
 before "deploy:assets:precompile", "deploy:npm_install"
 
 namespace :deploy do
+  #...
+
   desc "Run npm install"
   task :npm_install do
-    invoke_command "bash -c '. /home/deploy/.nvm/nvm.sh && cd #{release_path} && npm install'"
+    invoke_command "bash -c '. /home/deploy/.nvm/nvm.sh && cd #{release_path}/client_side/ && npm install'"
   end
+
+  #...
 end
 ```
 
