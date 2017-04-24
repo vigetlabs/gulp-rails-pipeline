@@ -36,7 +36,7 @@ rails s
 ```
 
 Run gulp and rejoice! This will start watching and recompiling files on the fly, as well as open a browser with BrowserSync running.
-````
+```
 gulp
 ```
 
