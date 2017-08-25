@@ -1,3 +1,8 @@
+# DEPRECATED: [Use Blendid!](https://github.com/vigetlabs/blendid)
+
+The work done in this repo has been rolled into a single dependency solution: [Blendid!](https://github.com/vigetlabs/blendid). You can set up your Rails project with the `yarn run blendid -- init-rails` command.
+
+
 # The Gulp Asset Pipeline on Rails
 - **Leaves Sprockets and manifest files intact** for use with gem installed assets
 - Transform and bundle CommonJS modules (js or coffee) with Browserify
